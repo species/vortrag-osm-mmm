@@ -80,6 +80,8 @@
 
 \end{frame}
 
+\subsection{Warum OpenStreetMap?}
+
 \begin{frame}{Warum OpenStreetMap?}
 
 \hspace{0.5cm}Es beginnt 2004 mit einer Geschichte:
@@ -132,6 +134,9 @@ Karten kommerzieller Anbieter nur sehr restriktiv nutzbar
 
 \end{frame}
 
+
+\subsection{Geschichte}
+
 {
  \usebackgroundtemplate{\includegraphics[height=10cm]{Osmdbstats2_users.png}}
 
@@ -154,6 +159,9 @@ Karten kommerzieller Anbieter nur sehr restriktiv nutzbar
 
 \end{frame}
 }
+
+
+\subsection{Hintergrund}
 
 \begin{frame}{Wer steht hinter OpenStreetMap}
 
@@ -189,6 +197,9 @@ Karten kommerzieller Anbieter nur sehr restriktiv nutzbar
   \end{itemize}
 
 \end{frame}
+
+\subsection{HOT}
+
 
 \begin{frame}{Humanitarian OSM Team}
 
@@ -295,7 +306,6 @@ Das erste Große Projekt: Haiti Januar 2010 (Erdbeben Stärke 7.0)
 
 \end{frame}
 
-\subsection{Lizenz}
 
 \begin{frame}{Lizenz}
 
@@ -386,10 +396,13 @@ Der komplette Datenbestand steht unter Versionskontrolle.
 \end{frame}
 
 
-\section{Wie OpenStreetMap nutzen?}
+\section{Was kann ich mit OpenStreetMap machen?}
 
-% was kann ihc mit osm machen?
+% was kann ich mit osm machen?
 % Karte ansehen
+% * oder in Webseiten einbinden
+% * Stile
+% Suche
 % Routing, auch Fahrrad oder Rollstuhl
 % Apps, Vorteil: Offline!
 % Daten runterladen, um Analysen zu machen
@@ -397,39 +410,34 @@ Der komplette Datenbestand steht unter Versionskontrolle.
 % * Cycle Map / hike-map
 % * Seamap
 % * lokalisierte karten
+% darstellung von POIs
+% * screenie opengastromap.de
+% * overpass-turbo
 
-\begin{frame}{Interaktive Web-Karten}
+\begin{frame}{OpenStreetMap.org}
 
-Hauptseite: \href{http://osm.org}{www.OpenStreetMap.org}
+	Suchfunktion:
 
- \begin{center}
- \includegraphics[width=9cm]{mainpage.png}
- \end{center}
+	\includegraphics[width=10cm]{osm-org.png}
 
+\end{frame}
 
+\begin{frame}{in Webseiten einbinden}
+
+	z.B. \url{www.linuxtage.at}
+
+	\includegraphics[width=10cm]{glt.png}
 
 \end{frame}
 
-\begin{frame}{Spezialkarten:}
+\hypersetup{urlcolor=cyan}
+\begin{frame}{Routing: z.B. für Rollstühle \hfill\href{http://rollstuhlrouting.de}{rollstuhlrouting.de}}
 
-
-  \begin{table}[htbp]
-    \centering
-    \begin{tabular}{r|l}
-      Radkarte  &  \url{http://opencyclemap.org} \\
-      Wanderkarte & \url{http://hikebikemap.de} \\
-      Rauchfrei-Karte & \url{http://OpenGastroMap.org} \\
-      Rollstuhl-Karte & \url{http://wheelmap.org} \\
-      Seekarte & \url{http://OpenSeaMap.org} \\
-\pause
-      200 weitere: & siehe \href{http://wiki.openstreetmap.org/wiki/List\_of\_OSM\_based\_Services}{OSM-Wiki} \\
-%      Interaktive Informationskarte & http://openstreetbrowser.org
-    \end{tabular}
-  \end{table}
-
-  Blitzschnelles Routing: \url{http://osrm.at} \hspace{1cm} \includegraphics[width=2.5cm]{shoes.jpg}
+	\includegraphics[width=10cm]{wheelchair-router.png}
 
 \end{frame}
+\hypersetup{urlcolor=blue}
+
 
 \begin{frame}{Mobil Nutzen}
 	Apps:
@@ -448,79 +456,252 @@ Hauptseite: \href{http://osm.org}{www.OpenStreetMap.org}
 
 \end{frame}
 
-  \subsection{ OpenStreetMap Verbessern}
+\begin{frame}{Spezialkarten: z.B. OpenSeaMap}
 
-\begin{frame}{OpenStreetMap Verbessern}
+ \includegraphics[width=10cm]{style-seamap.png}
 
-  Eine große Auswahl an Editoren steht fürs Web, Desktop- und Mobilnutzung zur Verfügung
+\end{frame}
 
+\hypersetup{urlcolor=cyan}
+\begin{frame}{Lokalisierte Karten :\hfill\href{http://toolserver.org/~osm/locale/ru.html}{toolserver.org/~osm/locale/ru.html}}
+	\begin{center}
+		\vspace{-1cm}
+		\includegraphics[height=6.5cm]{style-russ.png}
+	\end{center}
+\end{frame}
+\hypersetup{urlcolor=blue}
+
+%\begin{frame}{}
+
+%\end{frame}
+
+\begin{frame}{POI-Karten: z.B. OpenGastroMap}
+
+ \includegraphics[width=10cm]{opengastromap-de.png}
+
+\end{frame}
+
+\begin{frame}{POIs Suchen: Overpass-Turbo.eu}
+
+	Mittels Wizard: "`Museum in Bonn"'
+\vfill
+ \includegraphics[width=10cm]{overpass.png}
+
+\end{frame}
+
+% OSM-Datenmodell
+
+\subsection{OSM-Datenmodell}
+
+\begin{frame}{Datenmodell}
+Wurde von Informatikern ohne Geo-Vorbelastung erstellt:
+\begin{itemize}
+  \item Basisobjekt: Punkt (Koordinaten), $\Rightarrow$ "`Node"' \includegraphics[width=0.5cm]{node.png}
   \begin{itemize}
-    \item Web:
-    \begin{itemize}
-	    \item Hauptseite - Edit: iD (JavaScript)
-      \item JOSM web-start
-      \item oder auch einfach nur Fehler melden!
-	      \pause
-    \end{itemize}
-    \item Mobile (Auswahl): Alle siehe  \href{http://wiki.openstreetmap.org/wiki/Android\#OpenStreetMap\_editing\_features}{Android}, \href{http://wiki.openstreetmap.org/wiki/Apple\_iOS\#OpenStreetMap\_editing\_features}{iOS}:
-    \begin{itemize}
-      \item Vespucci: Ausgewachsener Editor
-      \item osmaptuner: Existierende POIs ergänzen
-      \item OsmTracker: GPS-Tracks, Audio, schnell POIs hinzufügen
-    \end{itemize}
-  \item Desktop
-    \begin{itemize}
-      \item \href{http://josm.openstreetmap.de}{JOSM}
-      \item \href{http://merkaartor.be}{Merkaartor}
-      \item ArcGIS (seit 10.1)
-    \end{itemize}
+    \item POIs
+    \pause
+    \item Teile von Wegen
   \end{itemize}
-
-\end{frame}
-
-\begin{frame}{Die Zukunft... 3D! }
-  Neu! Jetzt auch in 3D! Beispielsweise auf \href{http://maps.osm2world.org/?zoom=17&lat=47.06156&lon=15.46983&layers=BF0FTFFF}{maps.osm2world.org}.
-
-  \includegraphics[width=0.9\textwidth]{3d.png}
-
-
-\end{frame}
-
-\begin{frame}{Hilfe}
-
-\begin{itemize}
-  \item Fragen? OSM-Infostand am Geoday!
-\end{itemize}
- \begin{center}
-	  \includegraphics[width=4cm]{osm_workshop.jpg}
- \end{center}
-\begin{itemize}
-  \item Informationen: Wiki \href{http://wiki.openstreetmap.org}{wiki.openstreetmap.org}
-  \item Immer noch etwas unklar? $\Rightarrow$ Mailingliste \href{http://lists.openstreetmap.org/listinfo/talk-at}{talk-at}
+  \item Linienzüge sind eine Reihe von Nodes, $\Rightarrow$ "`Way"' \includegraphics[width=0.5cm]{way.png}
+  \begin{itemize}
+    \item Wege, Flüsse, Hecken etc.
+    \item können geschlossen sein: Gebäude, Flächen
+  \end{itemize}
   \pause
-  \item \href{http://wiki.openstreetmap.org/wiki/Graz/Stammtisch}{Stammtisch Graz} jedes Monat - der nächste Montag, 17.6.2013, Brot und Spiele!
+  \item Gruppierungen von Ways/Nodes $\Rightarrow$ "`Relations"' \includegraphics[width=0.5cm]{relation.png}
+  \begin{itemize}
+    \item Streckenrelationen, zB ÖPNV-Routen, Radrouten
+    \item Multipolygone
+    \item Abbiegebeschränkungen (Way:von, Way:nach, Node:über)
+    \item Meta-Relationen, zB für Verkehrsverbünde
+  \end{itemize}
 \end{itemize}
 
 \end{frame}
 
-\begin{frame}{Lizenz}
 
-Die Daten stehen unter der Open Database Licence - Entspricht etwa Creative Commons - Attribution - Sharealike für Daten.
+\begin{frame}{Datenmodell: Tagging}
+
+Jedes Element kann \emph{beliebige Anzahl} Eigenschaften "`Tags"' haben.
+
+Sie legen den Typ und die Eigenschaften des Objektes fest:
 \begin{itemize}
-  \item Jeder darf die Daten, auch kommerziell verwenden
-  \item Quelle: "`OpenStreetMap and Contributors, ODbL"' muß angegeben werden.
+  \item POIs
+  \item Wege (Strassen, Schienen, ...)
+  \item Landnutzungen (Wälder, Wiesen, ...)
 \end{itemize}
-
- \begin{center}
- \includegraphics[width=1cm]{ODbL.png}
- \hspace{2cm}
- \includegraphics[width=1.5cm]{cc-by-sa.pdf}
- \end{center}
 
 \pause
-Die Web-Karten auf \href{http://osm.org}{openstreetmap.org} sind CC-BY-SA.
+
+Ein "`Tag"' besteht aus Schlüssel und Wert, genannt "`key"' + "`value"'.
+
+\pause
+
+Der Key gibt die Objektgruppe an, der Value den Objekttyp.
+
+ Paare sind Freitext -- z.B.:
+\begin{itemize}
+  \item amenity = cafe \includegraphics[width=0.5cm]{cafe.png}
+  \item highway = footway \includegraphics[width=1cm]{footway.png}
+  \item building = yes  \includegraphics[width=0.5cm]{building.png}
+\end{itemize}
 
 \end{frame}
+
+\begin{frame}{Tagging: Beispiel Restaurant}
+
+\begin{itemize}
+  \item ``amenity'' = ``restaurant'' (Haupt-Tag amenity=POI)
+\pause
+  \item ``name'' = ``Am Ende des Universums''
+\pause
+  \item ``cuisine'' = ``italian"
+\pause
+  \item ``opening\_hours''=``Mo-Fr 11:00-23:00''
+\pause
+  \item ``addr:housenumber''=``42a''
+  \item ``addr:street''=``Petunienweg''
+  \item ``addr:city''=``Neu-München''
+\pause
+  \item ``diet:vegetarian''=``yes''
+  \item ``diet:vegan''=``limited''
+  \item ``diet:gluten\_free''=``no''
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Tagging-Schemata}
+  
+Sprache in der OSM ist Englisch!
+\pause
+Standards werden von der Community abgestimmt:
+\begin{itemize}
+  \item Draft
+  \item Proposal
+  \item Abstimmung
+\end{itemize}
+
+Sind im Wiki festgelegt, siehe \href{http://wiki.openstreetmap.org/wiki/DE:How\_to\_map\_a}{wiki/DE:How\_to\_map\_a}
+
+\end{frame}
+
+
+
+
+\begin{frame}{Mitmachen!}
+
+
+
+
+\end{frame}
+
+
+% Wie bei OSM mitmachen?
+% * Account anlegen auf osm.org
+% * learnosm.org
+% * Tab 'Edit'
+
+\begin{frame}{Mitmachen!}
+\begin{itemize}
+  \item Account anlegen auf osm.org
+  \item Tab "`Edit"' auf osm.org
+  \item Tutorial:  \href{http://learnosm.org/}{learnosm.org} 
+  \item Dokumentation: \href{http://wiki.openstreetmap.org}{wiki.openstreetmap.org}
+  \item Immer noch etwas unklar? $\Rightarrow$ Mailingliste \href{http://lists.openstreetmap.org/listinfo/talk-de}{talk-de}
+  \item Weltweite \href{http://usergroups.openstreetmap.de/}{Stammtische}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Interaktive Web-Karten}
+
+Hauptseite: \href{http://osm.org}{www.OpenStreetMap.org}
+
+ \begin{center}
+ \includegraphics[width=9cm]{mainpage.png}
+ \end{center}
+
+
+
+\end{frame}
+%
+%\begin{frame}{Spezialkarten:}
+%
+%
+%  \begin{table}[htbp]
+%    \centering
+%    \begin{tabular}{r|l}
+%      Radkarte  &  \url{http://opencyclemap.org} \\
+%      Wanderkarte & \url{http://hikebikemap.de} \\
+%      Rauchfrei-Karte & \url{http://OpenGastroMap.org} \\
+%      Rollstuhl-Karte & \url{http://wheelmap.org} \\
+%      Seekarte & \url{http://OpenSeaMap.org} \\
+%\pause
+%      200 weitere: & siehe \href{http://wiki.openstreetmap.org/wiki/List\_of\_OSM\_based\_Services}{OSM-Wiki} \\
+%%      Interaktive Informationskarte & http://openstreetbrowser.org
+%    \end{tabular}
+%  \end{table}
+%
+%  Blitzschnelles Routing: \url{http://osrm.at} \hspace{1cm} \includegraphics[width=2.5cm]{shoes.jpg}
+%
+%\end{frame}
+%
+%
+%  \subsection{ OpenStreetMap Verbessern}
+%
+%\begin{frame}{OpenStreetMap Verbessern}
+%
+%  Eine große Auswahl an Editoren steht fürs Web, Desktop- und Mobilnutzung zur Verfügung
+%
+%  \begin{itemize}
+%    \item Web:
+%    \begin{itemize}
+%	    \item Hauptseite - Edit: iD (JavaScript)
+%      \item JOSM web-start
+%      \item oder auch einfach nur Fehler melden!
+%	      \pause
+%    \end{itemize}
+%    \item Mobile (Auswahl): Alle siehe  \href{http://wiki.openstreetmap.org/wiki/Android\#OpenStreetMap\_editing\_features}{Android}, \href{http://wiki.openstreetmap.org/wiki/Apple\_iOS\#OpenStreetMap\_editing\_features}{iOS}:
+%    \begin{itemize}
+%      \item Vespucci: Ausgewachsener Editor
+%      \item osmaptuner: Existierende POIs ergänzen
+%      \item OsmTracker: GPS-Tracks, Audio, schnell POIs hinzufügen
+%    \end{itemize}
+%  \item Desktop
+%    \begin{itemize}
+%      \item \href{http://josm.openstreetmap.de}{JOSM}
+%      \item \href{http://merkaartor.be}{Merkaartor}
+%      \item ArcGIS (seit 10.1)
+%    \end{itemize}
+%  \end{itemize}
+%
+%\end{frame}
+%
+%\begin{frame}{Die Zukunft... 3D! }
+%  Neu! Jetzt auch in 3D! Beispielsweise auf \href{http://maps.osm2world.org/?zoom=17&lat=47.06156&lon=15.46983&layers=BF0FTFFF}{maps.osm2world.org}.
+%
+%  \includegraphics[width=0.9\textwidth]{3d.png}
+%
+%
+%\end{frame}
+%
+%\begin{frame}{Hilfe}
+
+%\begin{itemize}
+%  \item Fragen? OSM-Infostand am Geoday!
+%\end{itemize}
+% \begin{center}
+%	  \includegraphics[width=4cm]{osm_workshop.jpg}
+% \end{center}
+%\begin{itemize}
+%  \item Informationen: Wiki \href{http://wiki.openstreetmap.org}{wiki.openstreetmap.org}
+%  \item Immer noch etwas unklar? $\Rightarrow$ Mailingliste \href{http://lists.openstreetmap.org/listinfo/talk-at}{talk-at}
+%  \pause
+%  \item \href{http://wiki.openstreetmap.org/wiki/Graz/Stammtisch}{Stammtisch Graz} jedes Monat - der nächste Montag, 17.6.2013, Brot und Spiele!
+%\end{itemize}
+%
+%\end{frame}
+%
 
 \section{Ende}
 
