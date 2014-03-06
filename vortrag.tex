@@ -134,6 +134,30 @@ Karten kommerzieller Anbieter nur sehr restriktiv nutzbar
 
 \end{frame}
 
+\begin{frame}{OSM - Freie Karten für alle!}
+
+	OSM ist unabh"angig!
+	\begin{itemize}
+		\item Zentrale Infrastruktur wird von einer Stiftung betreut - man ist nicht  gewinnorientierten Firmen ausgeliefert.
+			\begin{itemize}
+				\item 	Sollten OSM-Hauptserver jemals abgeschaltet werden - Daten sind weltweit gespiegelt, Jeder kann das Projekt weiterf"uhren.
+				\item keine Zensur m"oglich 
+			\end{itemize}
+			\pause
+	\end{itemize}
+	Vorteile einer weltweiten Datenbank:
+	\begin{itemize}
+		\item	Gemeinsame Schnittstelle f"ur alle - weltweites Schema 
+		\item	Paralleles arbeiten durch Verwendung von Changesets m"oglich
+		\item 	Fehlerkorrektur durch viele Mapper ``Wisdom of the Crowd''
+		\item	Viele Daten bereits vorhanden - meistens nur Erg"anzung n"otig
+		\item   Nur ein Account n"otig, um bei vielen Projekten mitzuarbeiten
+		\item   Wenn das eigene Projekt einschl"aft, gehen die Daten nicht verloren!
+	\end{itemize}
+
+
+
+\end{frame}
 
 \subsection{Geschichte}
 
@@ -238,7 +262,7 @@ Das erste Große Projekt: Haiti Januar 2010 (Erdbeben Stärke 7.0)
 
 \end{frame}
 
-\section{Wie funktioniert OpenStreetMap?}
+\section{OpenStreetMap-Basics}
 
 \begin{frame}{Woher kommen unsere Daten?}
 
@@ -491,7 +515,7 @@ Der komplette Datenbestand steht unter Versionskontrolle.
 
 % OSM-Datenmodell
 
-\subsection{OSM-Datenmodell}
+\section{OSM-Datenmodell}
 
 \begin{frame}{Datenmodell}
 Wurde von Informatikern ohne Geo-Vorbelastung erstellt:
@@ -519,6 +543,7 @@ Wurde von Informatikern ohne Geo-Vorbelastung erstellt:
 
 \end{frame}
 
+\subsection{Tagging}
 
 \begin{frame}{Datenmodell: Tagging}
 
@@ -552,49 +577,153 @@ Der Key gibt die Objektgruppe an, der Value den Objekttyp.
 
 \begin{itemize}
   \item ``amenity'' = ``restaurant'' (Haupt-Tag amenity=POI)
+	  \begin{itemize}
+			   
 \pause
   \item ``name'' = ``Am Ende des Universums''
 \pause
   \item ``cuisine'' = ``italian"
 \pause
   \item ``opening\_hours''=``Mo-Fr 11:00-23:00''
+	  \end{itemize}
+
 \pause
   \item ``addr:housenumber''=``42a''
+	  \begin{itemize}
   \item ``addr:street''=``Petunienweg''
   \item ``addr:city''=``Neu-München''
+	  \end{itemize}
+
+\pause
+  \item ``contact:phone''=``+49 89 4711 0815''
+	  \begin{itemize}
+  \item ``contact:email''=``help@end.com''
+  \item ``contact:website''=``https://www.end.com''
+	  \end{itemize}
+
 \pause
   \item ``diet:vegetarian''=``yes''
+	  \begin{itemize}
   \item ``diet:vegan''=``limited''
   \item ``diet:gluten\_free''=``no''
+	  \end{itemize}
 \end{itemize}
 
 \end{frame}
 
 \begin{frame}{Tagging-Schemata}
   
-Sprache in der OSM ist Englisch!
-\pause
-Standards werden von der Community abgestimmt:
+Es gibt viele Standard-Tags f"ur h"aufige Objekte - siehe Wiki: \href{http://wiki.openstreetmap.org/wiki/DE:How\_to\_map\_a}{wiki/DE:How\_to\_map\_a}
+
+Es gibt einen "'Haupt"'-Tag f"ur jedes Objekt, gruppiert nach Keys:
+\begin{itemize}
+	\item ``highway''= f"ur Wege
+	\item ``amenity''= f"ur POIs
+	\item ``natural''= f"ur B"aume, Geb"usch, Klippen, Berge...
+	\item ``leisure''= f"ur Erholungs-Dinge
+\end{itemize}
+
+"`Unter"'-Tags, die Haupt-Tag genauer spezifizieren:
+\begin{itemize}
+        \item ``highway''=``service''
+	\begin{itemize}
+               \item ``service''=``parking\_aisle''
+	\end{itemize}
+\end{itemize}
+
+Schemata f"ur komplexe Attribute:
+\begin{itemize}
+        \item ``contact:*''=
+	\item ``addr:*''=
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Erg"anzende Attribute}
+
+Namen in anderen Sprachen:
+\begin{itemize}
+        \item ``name:en''=``Munich''
+	\item ``official\_name''=``Fürstentum Liechtenstein''
+	\item ``reg\_name''=``zum Huberbauer''
+\end{itemize}
+
+POIs
+
+\begin{itemize}
+		        \item ``wheelchair''=*
+			\item ``start\_date''=``2001''
+			\item ``minage''=``18''
+\end{itemize}
+
+Allgemeines
+\begin{itemize}
+	\item ``note''=``Geb"aude abgerissen''
+	\item ``description''=``Stoffe, Kn"opfe und Leder''
+	\item ``source''=``survey''
+\end{itemize}
+
+
+Oder alles, was Sinn macht $\Rightarrow$ Tags sind Freitext!
+
+\end{frame}
+
+\begin{frame}{Wie entsteht ein Tagging-Standard?}
+
+Neue Tags werden von der Community abgestimmt.
+\vspace{0.7cm}
+
+An einem neuen Schema wird im OSM-Wiki gearbeitet:
 \begin{itemize}
   \item Draft
   \item Proposal
   \item Abstimmung
 \end{itemize}
 
-Sind im Wiki festgelegt, siehe \href{http://wiki.openstreetmap.org/wiki/DE:How\_to\_map\_a}{wiki/DE:How\_to\_map\_a}
+Diskussion auf der weltweiten Tagging-Mailingliste.
+\pause
+\begin{itemize}
+	  \item Tagging-Sprache in der OSM ist Englisch!
+\end{itemize}
+
+\pause
+%Es kann keiner verhindern, einen Standard schon vor ``offizieller'' Ratifizierung zu verwenden :-)
+
+\end{frame}
+
+\begin{frame}{Ein Beispiel f"ur neue Schemata}
+
+\begin{itemize}
+	\item Was (Bed"urfnisse):
+	\begin{itemize}
+		\item ``community:service:education''=``yes'' (Bildungsangebote)
+		\item ``community:service:housing''=``yes'' (Wohnm"oglichkeit)
+		\item ``community:service:exercise''=``yes'' (Bewegungsm"oglichkeit)
+	\end{itemize}
+\end{itemize}
+
+\pause
+\begin{itemize}
+	\item Wie (Interaktion):
+	\begin{itemize}
+		\item ``community:service:bicycle\_trailer:access\_mode''=``rental'' (geliehen)
+		\item ``community:service:tools:access\_mode''=``sharing'' (teilen)
+		\item ``community:resource:seeds:access\_mode''=``swapping'' (tauschen)
+	\end{itemize}
+\end{itemize}
+\pause
+\begin{itemize}
+	\item Wer ("`Politische"' Zugeh"origkeit)
+	\begin{itemize}
+		\item ``community:group\_type''=``commons'' 
+		\item ``community:group\_type''=``sol"ok'' 
+	\end{itemize}
+\end{itemize}
 
 \end{frame}
 
 
-
-
-\begin{frame}{Mitmachen!}
-
-
-
-
-\end{frame}
-
+\section{Mitmachen!}
 
 % Wie bei OSM mitmachen?
 % * Account anlegen auf osm.org
@@ -604,7 +733,13 @@ Sind im Wiki festgelegt, siehe \href{http://wiki.openstreetmap.org/wiki/DE:How\_
 \begin{frame}{Mitmachen!}
 \begin{itemize}
   \item Account anlegen auf osm.org
+	\begin{itemize}
+		\item Kein Realname, keine Einladung n"otig - nur E-Mail und Passwort.
+	\end{itemize}
   \item Tab "`Edit"' auf osm.org
+	\begin{itemize}
+		\item Kein Freischalten, keine "`Reputation"' n"otig - Alle "Anderungen sofort live!
+	\end{itemize}
   \item Tutorial:  \href{http://learnosm.org/}{learnosm.org} 
   \item Dokumentation: \href{http://wiki.openstreetmap.org}{wiki.openstreetmap.org}
   \item Immer noch etwas unklar? $\Rightarrow$ Mailingliste \href{http://lists.openstreetmap.org/listinfo/talk-de}{talk-de}
@@ -613,17 +748,38 @@ Sind im Wiki festgelegt, siehe \href{http://wiki.openstreetmap.org/wiki/DE:How\_
 
 \end{frame}
 
-\begin{frame}{Interaktive Web-Karten}
+\begin{frame}{Bedenken?}
+Ja, aber ...
 
-Hauptseite: \href{http://osm.org}{www.OpenStreetMap.org}
+\vspace{0.3cm}
 
- \begin{center}
- \includegraphics[width=9cm]{mainpage.png}
- \end{center}
+Ich will meine Tel/E-Mail/etc ja garnicht weltweit durchsuchbar haben?
 
+\pause
+\begin{itemize}
+	  \item Warum hat man dann eine Webseite?
+	  \begin{itemize}
+	            \item damit man gefunden wird!
+		    \item Auch auf der Webseite greift Google alles ab.
+		     \begin{itemize}
+                         \item nur hat sie dann nur Google und sonst keiner...
+		 \end{itemize}
+	\end{itemize}
+	\pause
+	\item Denke an Seh-Einschr"ankungen - Website barrierfrei?
+	\item ein Smartphone kann Aus OSM-Daten direkt dort anrufen
+\end{itemize}
+Als es noch Telefonb"ucher gab, hatten auch die wenigsten ein Problem damit.
 
+\vspace{0.3cm}
+
+\pause
+Wer keinen Kontakt zu anderen Menschen will, sollte auch die T"urschilder entfernen ;-)
 
 \end{frame}
+
+
+
 %
 %\begin{frame}{Spezialkarten:}
 %
